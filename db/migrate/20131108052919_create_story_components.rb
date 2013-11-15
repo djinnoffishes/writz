@@ -1,7 +1,7 @@
 class CreateStoryComponents < ActiveRecord::Migration
   def change
     create_table :story_components do |t|
-      t.integer :author_id, null: false
+      t.integer :contributer_id, null: false
       t.string :component_type, null: false
       t.string :body
 

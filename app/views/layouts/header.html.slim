@@ -1,0 +1,28 @@
+div class='header'
+  div class='container'
+    div class='navbar-header'
+      div
+        = link_to 'Writz', root_path, class: 'navbar-brand'
+    div class='collapse navbar-collapse'
+      ul class='nav navbar-nav'
+        li
+          = link_to 'Home', root_path
+        li
+          = link_to 'About', welcome_about_path
+        li
+          = link_to 'Stories', stories_path
+        li
+          div class='input-group input-group-sm' id='search'
+            span class='input-group-addon glyphicon glyphicon-search'
+            input type='text' class='form-control' placeholder='Search'
+      ul class='nav navbar-nav navbar-right'
+        - if current_user
+          li 
+            = link_to "#{current_user.name}'s account", edit_user_registration_path, class: 'header-greeting'
+          li
+            = link_to "Sign out", destroy_user_session_path, method: :delete
+        - else
+          li
+            = link_to 'Sign in', new_user_session_path
+          li
+            = link_to 'Sign up', new_user_registration_path

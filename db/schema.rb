@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131114195124) do
+ActiveRecord::Schema.define(version: 20131115044306) do
+
+  create_table "contributers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "story_component_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "stories", force: true do |t|
     t.string   "title",      null: false
@@ -23,7 +30,7 @@ ActiveRecord::Schema.define(version: 20131114195124) do
   add_index "stories", ["creator_id"], name: "index_stories_on_creator_id"
 
   create_table "story_components", force: true do |t|
-    t.integer  "author_id",      null: false
+    t.integer  "contributer_id", null: false
     t.string   "component_type", null: false
     t.string   "body"
     t.datetime "created_at"

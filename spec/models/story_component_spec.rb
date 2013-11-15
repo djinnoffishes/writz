@@ -8,4 +8,9 @@ describe StoryComponent do
   it 'should reject an invalid story_id' do
     a = FactoryGirl.build(:story_component, story_id: 'bogus').should_not be_valid
   end
+
+  it 'should reject an invalid contributer_id' do
+    a = FactoryGirl.build(:story_component, contributer_id: 'bogus').should_not be_valid
+  end
+
 end

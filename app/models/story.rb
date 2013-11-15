@@ -13,4 +13,12 @@ class Story < ActiveRecord::Base
     self.missing_component_types.empty?
   end
 
+  def story_intro
+    if self.story_components.first.component_type == 'intro'
+      self.story_components.first.body
+    else
+      'This story needs an introduction!'
+    end
+  end
+
 end

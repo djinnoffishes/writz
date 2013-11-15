@@ -1,0 +1,27 @@
+.stories-container {
+  margin-top: 100px;
+  min-height: 500px;
+}
+
+.list-group {
+  &:active, &:hover {
+    text-decoration: none;
+  }
+  max-width: 300px;
+  a:link {
+    color: black;
+  }
+  a:visited {
+    color: black;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.list-group-item:hover {
+  transition: all 0.2s;
+  -webkit-transition: 0.2s;
+  -webkit-transform: scale(1.10,1.10);
+  -ms-transform: scale(1.25,1.25);
+}
