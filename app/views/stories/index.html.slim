@@ -1,11 +1,9 @@
 div class='stories-container'
   div class='list-group'
     - @stories.each do |s|
-      = link_to story_path(s) do
-        div class='list-group-item'
-          h4 class='list-group-item-heading'
-            = s.title
-          p class='list-group-item-text'
-            = s.story_intro
+      = link_to story_path(s), class: 'list-group-item story_link', data: {id: s.id} do
+        h4 class='list-group-item-heading'
+          = s.title
+        p class='list-group-item-text'
+          = truncate s.intro, length: 40
   div class='selected-story'
-    // I want to render the SHOW action for a selected story, here.

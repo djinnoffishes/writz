@@ -1,6 +1,12 @@
 .stories-container {
   margin-top: 100px;
   min-height: 500px;
+  display: -webkit-inline-box;
+}
+
+.selected-story {
+  padding-left: 50px;
+  max-width: 814px;
 }
 
 .list-group {

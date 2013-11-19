@@ -15,3 +15,13 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+$(document).ready(function() {
+  $('.story_link').click(function(evt) {;
+    var clickedLink = $(evt.currentTarget);
+    evt.preventDefault();
+    $('.list-group-item').removeClass('active');
+    $(clickedLink).addClass('active');
+    $('.selected-story').load('http://127.0.0.1:3000/stories/' + clickedLink.attr('data-id'));
+  });
+});

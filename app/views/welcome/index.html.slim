@@ -1,21 +1,14 @@
-div class="welcome"
+div class='welcome'
   h1 Write a Story Together!
   br
   p 
-    button type="button" class="btn btn-primary btn-lg" Get started
-div class="row top-stories"
-  div class="col-6 col-sm-6 col-lg-4"
-    h2 Story one
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed dolor nisl. Donec vitae turpis cursus, ultrices tellus at, placerat orci. Mauris in ante vitae urna venenatis pulvinar consectetur egestas ipsum. Aliquam sit amet velit tortor.
-    p
-      a class="btn btn-default" Read
-  div class="col-6 col-sm-6 col-lg-4"
-    h2 Story two
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed dolor nisl. Donec vitae turpis cursus, ultrices tellus at, placerat orci. Mauris in ante vitae urna venenatis pulvinar consectetur egestas ipsum. Aliquam sit amet velit tortor.
-    p
-      a class="btn btn-default" Read
-  div class="col-6 col-sm-6 col-lg-4"
-    h2 Story three
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed dolor nisl. Donec vitae turpis cursus, ultrices tellus at, placerat orci. Mauris in ante vitae urna venenatis pulvinar consectetur egestas ipsum. Aliquam sit amet velit tortor.
-    p
-      a class="btn btn-default" Read
+    = link_to 'Get started', stories_path, class: 'btn btn-primary btn-lg'
+div class='row top-stories'
+  - @top_stories.each do |s|
+    div class='col-6 col-sm-6 col-lg-4'
+      h2 
+        = truncate s.title, length: 20
+      p 
+        = truncate s.intro, length: 500
+      p
+        = link_to 'Read', story_path(s), class: 'btn btn-default'

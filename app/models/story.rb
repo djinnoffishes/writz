@@ -13,11 +13,27 @@ class Story < ActiveRecord::Base
     self.missing_component_types.empty?
   end
 
-  def story_intro
-    if self.story_components.first.component_type == 'intro'
-      self.story_components.first.body
+  def intro
+    if si = self.story_components.where(component_type: 'intro').first
+      si.body
     else
       'This story needs an introduction!'
+    end
+  end
+
+  def conflict
+    if sc = self.story_components.where(component_type: 'conflict').first
+      sc.body
+    else
+      'This story needs a conflict!'
+    end
+  end
+
+  def resolution
+    if sc = self.story_components.where(component_type: 'resolution').first
+      sc.body
+    else
+      'This story needs a resolution!'
     end
   end
 
