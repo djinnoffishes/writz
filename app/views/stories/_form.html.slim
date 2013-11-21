@@ -1,0 +1,12 @@
+= form_for(@story) do |f|
+
+  - if @story.errors.messages[:title]
+    div class='has-error'
+      = f.text_field :title, class: 'form-control input-lg', autofocus: true
+      = 'Title ' + @story.errors.messages[:title].first + '!'
+  -else
+    div 
+      = f.text_field :title, class: 'form-control input-lg', autofocus: true
+  br
+  div
+    = f.submit 'Create', class: 'btn btn-lg btn-primary btn-block'

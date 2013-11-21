@@ -22,6 +22,6 @@ $(document).ready(function() {
     evt.preventDefault();
     $('.list-group-item').removeClass('active');
     $(clickedLink).addClass('active');
-    $('.selected-story').load('http://127.0.0.1:3000/stories/' + clickedLink.attr('data-id'));
+    $('.selected-story').load('/stories/' + clickedLink.attr('data-id'));
   });
 });

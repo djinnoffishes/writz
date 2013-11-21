@@ -1,0 +1,62 @@
+div class='form-auth'
+  h2 Sign up
+
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+
+    br
+    - if resource.errors.messages[:name]
+      div class="has-error"
+        = f.text_field :name, class: "form-control", placeholder: "Name", :autofocus => true
+        Name
+        = resource.errors.messages[:name].first
+        br
+    - else
+      div
+        = f.text_field :name, class: "form-control", placeholder: "Name", :autofocus => true
+
+    br
+    - if resource.errors.messages[:Email]
+      div class="has-error"
+        = f.email_field :email, class: "form-control", placeholder: "Email", :autofocus => true
+        Email address
+        = resource.errors.messages[:email].first
+        br
+    - else
+      div
+        = f.email_field :email, class: "form-control", placeholder: "Email"
+
+    br
+    - if resource.errors.messages[:password]
+      div class="has-error"
+        = f.password_field :password, 
+          class: "form-control", 
+          placeholder: "Password", 
+          :autofocus => true, 
+          :autocomplete => "off"
+        Password
+        = resource.errors.messages[:password].first
+        br
+    - else
+      div
+        = f.password_field :password, class: "form-control", placeholder: "Password", :autocomplete => "off"
+
+    br
+    - if resource.errors.messages[:password_confirmation]
+      div class="has-error"
+        = f.password_field :password_confirmation, 
+          class: "form-control", 
+          placeholder: "Password confirmation", 
+          :autofocus => true
+        Password confirmation
+        = resource.errors.messages[:password_confirmation].first
+        br
+    - else
+      div
+        = f.password_field :password_confirmation, class: "form-control", placeholder: "Password confirmation"
+
+    br
+    div
+      = f.submit "Sign up", class: "btn btn-lg btn-primary btn-block"
+    br
+
+  = render "devise/shared/links"

@@ -3,6 +3,8 @@ class Story < ActiveRecord::Base
   has_many :contributers
   has_many :users, through: :contributers
 
+  validates :title, presence: true
+
   COMPONENT_TYPES = ['intro', 'conflict', 'resolution']
 
   def missing_component_types

@@ -13,4 +13,10 @@ describe StoryComponent do
     a = FactoryGirl.build(:story_component, contributer_id: 'bogus').should_not be_valid
   end
 
+  it 'should be manageable by the contributer who created it' do 
+  end
+
+  it 'should be activateable by the story creator' do
+  end
+
 end
