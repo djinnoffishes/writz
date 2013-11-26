@@ -1,0 +1,32 @@
+= form_for [@story, @story_component] do |f|
+
+  = f.hidden_field :contributer_id
+
+  br
+  div
+    = f.label :component_type, 'Section of story:&nbsp;'.html_safe
+    = f.select :component_type, @component_types, autofocus: true
+  
+  br
+  - if @story_component.errors.messages[:body]
+    div class="has-error"
+      = f.text_area :body, 
+        class: 'form-control input-lg', 
+        value: @story_component.body,
+        data: {provide: 'markdown'},
+        rows: 15,
+        autofocus: true
+      = 'Component ' + @story_component.errors.messages[:body].first + '!'
+  - else
+    div
+      = f.text_area :body, 
+        class: 'form-control input-lg', 
+        value: @story_component.body, 
+        placeholder: 'Write your part of the story here!',
+        data: {provide: 'markdown'},
+        rows: 15,
+        autofocus: true
+  
+  br
+  div
+    = f.submit 'Save', class: 'btn btn-lg btn-primary btn-block'

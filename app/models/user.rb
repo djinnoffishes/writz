@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  
+  has_many :sc_ownerships, foreign_key: :contributer_id, class_name: "StoryComponent"
+
   validates :password, exclusion: {in: ["Password"],
     message: "must be changed." }
   validates :name, presence: true

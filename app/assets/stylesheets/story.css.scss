@@ -1,5 +1,5 @@
 .stories-container {
-  margin-top: 100px;
+  margin-top: 20px;
   min-height: 500px;
 }
 
@@ -26,8 +26,8 @@
 .list-group-item:hover {
   transition: all 0.2s;
   -webkit-transition: 0.2s;
-  -webkit-transform: scale(1.10,1.10);
-  -ms-transform: scale(1.25,1.25);
+  -webkit-transform: scale(1.05,1.05);
+  -ms-transform: scale(1.05,1.05);
 }
 
 .new-story {
@@ -37,6 +37,25 @@
   margin-right: auto;
 }
 
+.sc-dropdown {
+  margin-left: 10px;
+}
+
 .story-component:hover {
   background-color: ivory;
+}
+
+.dropdown-menu {
+  display: none;
+  outline: 0;
+}
+
+.hidden-id {
+  display: none
+}
+
+.sc-forms {
+  max-width: 740px;
+  margin-right: auto;
+  margin-left: auto;
 }

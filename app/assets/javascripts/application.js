@@ -12,16 +12,60 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap
+//= require bootstrap-markdown
+//= require turbolinks
 //= require_tree .
 
 $(document).ready(function() {
+
+  $('.story-component').click(function(evt) {
+    
+    // Variables
+    var scid = $(this).data('scid');
+    var sid = $(this).data('sid');
+    var jContent = $( ".content" );
+
+    // The menu for individual story components
+    $(".dropdown-menu").slideDown(200,function(){$(this).focus();});
+    $(".dropdown-menu").css( {position:"absolute", top:evt.pageY, left: evt.pageX});
+    
+    // Link to the edit story component view
+    $('#edit').click(function(evt) {
+      evt.preventDefault();
+      $.ajax({
+        url: '/stories/' + sid + '/story_components/' + scid + '/edit',
+        type: 'get',
+        dataType: 'html',
+        success: function( pgData ){
+              jContent.html( pgData );
+            }
+      });
+    });
+
+    // Link to the new story component view
+    $('#add').click(function(evt) {
+      evt.preventDefault();
+      $.ajax({
+        url: '/stories/' + sid + '/story_components/new',
+        type: 'get',
+        dataType: 'html',
+        success: function( pgData ){
+              jContent.html( pgData );
+            }
+      });
+    });
+  });
+
+  // Stories index menu and the code for loading this content dynamically
   $('.story_link').click(function(evt) {;
     var clickedLink = $(evt.currentTarget);
     evt.preventDefault();
     $('.list-group-item').removeClass('active');
     $(clickedLink).addClass('active');
     $('.selected-story').load('/stories/' + clickedLink.attr('data-id'));
+  });
+  $(".dropdown-menu").on('blur',function(){
+    $(this).slideUp(200);
   });
 });

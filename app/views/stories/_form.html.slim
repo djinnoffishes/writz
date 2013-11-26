@@ -4,7 +4,7 @@
     div class='has-error'
       = f.text_field :title, class: 'form-control input-lg', autofocus: true
       = 'Title ' + @story.errors.messages[:title].first + '!'
-  -else
+  - else
     div 
       = f.text_field :title, class: 'form-control input-lg', autofocus: true
   br

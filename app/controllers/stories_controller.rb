@@ -6,9 +6,30 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find(params[:id])
-    @components = StoryComponent.where('component_type = intro', @story)
-    @conflict = StoryComponent.where('component_type = conflict', @story)
-    @resolution = StoryComponent.where('component_type = resolution', @story)
+    
+    if @story.intro
+      @intro_id = @story.intro.id
+      @intro_body = @story.intro.body
+    else
+      @intro_id = ''
+      @intro_body = 'This story needs an introduction!'
+    end
+
+    if @story.conflict
+      @conflict_id = @story.conflict.id
+      @conflict_body = @story.conflict.body
+    else
+      @conflict_id = ''
+      @conflict_body = 'This story needs a conflict!'
+    end
+
+    if @story.resolution
+      @resolution_id = @story.resolution.id
+      @resolution_body = @story.resolution.body
+    else
+      @resolution_id = ''
+      @resolution_body = 'This story needs a resolution!'
+    end
 
     render(:layout => false) if request.xhr?
   end
@@ -29,9 +50,6 @@ class StoriesController < ApplicationController
         format.json { render json: @story.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def edit
   end
 
   def update

@@ -1,11 +1,21 @@
 h2
-  = @story.title
+  = link_to @story.title, @story
 
-p class='story-component'
-  = @story.intro
+div class='story-component' data-scid='#{@intro_id}' data-sid='#{@story.id}'
+  p
+    = markdown(@intro_body).html_safe
 
-p class='story-component'
-  = @story.conflict
+div class='story-component' data-scid='#{@conflict_id}' data-sid='#{@story.id}'
+  p
+    = markdown(@conflict_body).html_safe
 
-p class='story-component'
-  = @story.resolution
+div class='story-component' data-scid='#{@conflict_id}' data-sid='#{@story.id}'
+  p
+    = markdown(@resolution_body).html_safe
+
+
+ul class='dropdown-menu' tabindex='-1'
+  li id='edit'
+    a href='' Edit
+  li id='add'
+    a href='' Add component

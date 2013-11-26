@@ -9,6 +9,9 @@ div class='row top-stories'
       h2 
         = truncate s.title, length: 20
       p 
-        = truncate s.intro, length: 500
+        - if s.intro
+          = truncate s.intro.body, length: 425
+        - else
+          = 'This story needs an introduction!'
       p
         = link_to 'Read', story_path(s), class: 'btn btn-default'

@@ -16,27 +16,15 @@ class Story < ActiveRecord::Base
   end
 
   def intro
-    if si = self.story_components.where(component_type: 'intro').first
-      si.body
-    else
-      'This story needs an introduction!'
-    end
+    self.story_components.where(component_type: 'intro').first
   end
 
   def conflict
-    if sc = self.story_components.where(component_type: 'conflict').first
-      sc.body
-    else
-      'This story needs a conflict!'
-    end
+    self.story_components.where(component_type: 'conflict').first
   end
 
   def resolution
-    if sc = self.story_components.where(component_type: 'resolution').first
-      sc.body
-    else
-      'This story needs a resolution!'
-    end
+    self.story_components.where(component_type: 'resolution').first
   end
 
 end
