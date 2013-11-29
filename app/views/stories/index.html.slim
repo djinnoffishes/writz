@@ -14,4 +14,5 @@ div class='row stories-container'
             = truncate s.intro.body, length: 40
           - else
             = 'This story needs an introduction!'
+    = will_paginate @stories, renderer: BootstrapPagination::Rails, bootstrap: 3
   div class='col-md-8 selected-story'

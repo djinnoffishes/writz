@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
 
   def index
-    @stories = Story.all
+    @stories = Story.all.paginate(page: params[:page], per_page: 7)
   end
 
   def show
