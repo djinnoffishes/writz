@@ -6,7 +6,7 @@ div class='row stories-container'
   br
   div class='col-md-4 list-group'
     - @stories.each do |s|
-      = link_to story_path(s), class: 'list-group-item story_link', data: {id: s.id} do
+      = link_to story_path(s), class: 'list-group-item story-link', data: {id: s.id} do
         h4 class='list-group-item-heading'
           = s.title
         p class='list-group-item-text'

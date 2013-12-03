@@ -10,7 +10,7 @@ div class='row top-stories'
         = truncate s.title, length: 20
       p 
         - if s.intro
-          = truncate s.intro.body, length: 425
+          = truncate markdown(s.intro.body).html_safe, length: 425
         - else
           = 'This story needs an introduction!'
       p
