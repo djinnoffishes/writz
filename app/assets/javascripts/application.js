@@ -19,8 +19,9 @@
 
 $(document).ready(function() {
 
-  $('.story-component').click(function(evt) {
-    
+  //$('.story-component').click(function(evt) {
+  $('body').on('click', '.story-component', function(evt) {
+
     // Variables
     var scid = $(this).data('scid');
     var sid = $(this).data('sid');
@@ -58,7 +59,7 @@ $(document).ready(function() {
   });
 
   // Stories index menu and the code for loading this content dynamically
-  $('.body').on('click', '.story-link', function(evt) {
+  $('body').on('click', '.story-link', function(evt) {
     evt.preventDefault();
     $('.list-group-item').removeClass('active');
     $(this).addClass('active');
