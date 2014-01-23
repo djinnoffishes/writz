@@ -20,7 +20,7 @@
 $(document).ready(function() {
 
   //$('.story-component').click(function(evt) {
-  $('body').on('click', '.story-component', function(evt) {
+  $('.populate').on('click', '.story-component', function(evt) {
 
     // Variables
     var scid = $(this).data('scid');
