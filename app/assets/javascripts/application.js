@@ -14,22 +14,23 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-markdown
+//= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .
 
 $(document).ready(function() {
 
   //$('.story-component').click(function(evt) {
-  $('.populate').on('click', '.story-component', function(evt) {
-
+  $('body').on('click', '.story-component', function(evt) {
+    console.log('what is this', $(this), 'and something to put to log', 'seriously');
     // Variables
     var scid = $(this).data('scid');
     var sid = $(this).data('sid');
     var jContent = $('.content');
 
     // The menu for individual story components
-    $('.dropdown-menu').slideDown(200,function(){$(this).focus();});
-    $('.dropdown-menu').css( {position:'absolute', top:evt.pageY, left: evt.pageX});
+    $('.dropdown-menu').slideDown(200,function(){$(this).focus();}); // look at bootstrap tooltip component ; anchor
+    $('.dropdown-menu').css( {position:'fixed', top:evt.pageY, left: evt.pageX}); // look at bootstrap tooltip component ; anchor
     
     // Link to the edit story component view
     $('#edit').click(function(evt) {
